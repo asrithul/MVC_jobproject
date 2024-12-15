@@ -1,0 +1,105 @@
+﻿@model MVC_jobproject.Models.UserInsert
+@{
+    ViewBag.Title = "Insertuser_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User Registration</h2>
+<div>
+    @using (Html.BeginForm("Insert_click", "UserReg", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <label>Name:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.uname)
+            @Html.ValidationMessageFor(m => m.uname)
+        </div>
+        <div>
+            <label>Age:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.uage)
+            @Html.ValidationMessageFor(m => m.uage)
+        </div>
+        <div>
+            <label>Address:</label>
+        </div>
+        <div>
+            @Html.TextAreaFor(m => m.uaddr);
+            @Html.ValidationMessageFor(m => m.uaddr)
+        </div>
+        <div>
+            <label>Email:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.uemail)
+            @Html.ValidationMessageFor(m => m.uemail)
+        </div>
+        <div>
+            <label>Photo:</label>
+        </div>
+        <div>
+            @Html.TextBox("file", "", new { Type = "file" })
+        </div>
+        <div>
+            <label>Phone Number:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.phone)
+            @Html.ValidationMessageFor(m => m.phone)
+        </div>
+        <div>
+            <label>Skills:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.skills)
+            @Html.ValidationMessageFor(m => m.skills)
+        </div>
+        <div>
+            <label>Experience(IN Years):</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.exp)
+            @Html.ValidationMessageFor(m => m.exp)
+        </div>
+        <div>
+            <label>Qualification:</label>
+        </div>
+        <div>
+            @foreach (var item in Model.Myqual)
+            {
+                <label>
+                    <input type="checkbox" value="@item.value" checked="@item.IsChecked" name="selectedqual" id="@item.value" /> @Html.Raw(item.text)
+                </label>
+            }
+        </div>
+        <div>
+            <label>Username:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.username)
+            @Html.ValidationMessageFor(m => m.username)
+        </div>
+        <div>
+            <label>Password</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.pwd)
+            @Html.ValidationMessageFor(m => m.pwd)
+        </div>
+        <div>
+            <label>Confirm Password:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.cpwd)
+            @Html.ValidationMessageFor(m => m.cpwd)
+        </div>
+        <div>
+            <input type="submit" value="Insert" />
+            @Html.DisplayFor(m => m.msg)
+        </div>
+
+    }
+</div>
+

@@ -1,0 +1,73 @@
+﻿@model MVC_jobproject.Models.CompInsert
+@{
+    ViewBag.Title = "Insertcomp_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Company Registration</h2>
+<div>
+    @using(Html.BeginForm("Insertcomp_click","CompanyReg",FormMethod.Post,new { enctype = "multipart/form-data" }))
+    {
+                <div>
+                    <label>Company Name:</label>
+                </div>
+                <div>
+                    @Html.TextBoxFor(m=>m.cname)
+                    @Html.ValidationMessageFor(m=>m.cname)
+                </div>
+                <div>
+                    <label>Company Email:</label>
+                </div>
+                <div>
+                    @Html.TextBoxFor(m => m.cemail)
+                    @Html.ValidationMessageFor(m => m.cemail)
+                </div>
+                <div>
+                    <label>Company Phone:</label>
+                </div>
+                <div>
+                    @Html.TextBoxFor(m => m.cphone)
+                    @Html.ValidationMessageFor(m => m.cphone)
+                </div>
+                <div>
+                    <label>Company Address:</label>
+                </div>
+                <div>
+                    @Html.TextBoxFor(m => m.caddr)
+                    @Html.ValidationMessageFor(m => m.caddr)
+                </div>
+                <div>
+                    <label>Company Website:</label>
+                </div>
+                <div>
+                    @Html.TextBoxFor(m => m.cweb)
+                    @Html.ValidationMessageFor(m => m.cweb)
+                </div>
+                <div>
+                    <label>Username:</label>
+                </div>
+                <div>
+                    @Html.TextBoxFor(m => m.uname)
+                    @Html.ValidationMessageFor(m => m.uname)
+                </div>
+                <div>
+                    <label>Password:</label>
+                </div>
+                <div>
+                    @Html.TextBoxFor(m => m.pass)
+                    @Html.ValidationMessageFor(m => m.pass)
+                </div>
+                <div>
+                    <label>Confirm Password:</label>
+                </div>
+                <div>
+                    @Html.TextBoxFor(m => m.cpassword)
+                    @Html.ValidationMessageFor(m => m.cpassword)
+                </div>
+                <div>
+                    <input type="submit" value="Register" />
+                    @Html.DisplayFor(m=>m.cadminmsg)
+                </div>
+            }
+</div>
+

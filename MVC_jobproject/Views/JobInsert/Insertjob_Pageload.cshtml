@@ -1,0 +1,47 @@
+﻿@model MVC_jobproject.Models.JobInsert
+@{
+    ViewBag.Title = "Insertjob_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Publish an Opening</h2>
+<div>
+    @using(Html.BeginForm("Insertjob_click","JobInsert",FormMethod.Post,new {enctype="multipart/form-data"}))
+            {
+                <div>
+                    <label>Job Tittle:</label>
+                </div>
+                <div>
+                    @Html.TextBoxFor(m=>m.jtitle)
+                </div>
+                <div>
+                    <label>Job Description:</label>
+                </div>
+                <div>
+                    @Html.TextAreaFor(m=>m.jdesc)
+                </div>
+                <div>
+                    <label>Skills Needed:</label>
+                </div>
+                <div>
+                    @Html.TextBoxFor(m=>m.jskill)
+                </div>
+                <div>
+                    <label>Experience:</label>
+                </div>
+                <div>
+                    @Html.TextBoxFor(m=>m.jexp)
+                </div>
+                <div>
+                    <label>Closing Date:</label>
+                </div>
+                <div>
+                    @Html.TextBoxFor(m=>m.closing_date)
+                </div>
+                <div>
+                    <input type="submit" value="Post" />
+                    @Html.DisplayFor(m=>m.jmsg)
+                </div>
+            }
+</div>
+
